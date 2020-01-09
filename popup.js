@@ -1,9 +1,28 @@
 // Match password + add margin to masterRePassword
+
+
+
+
 $(document).ready(function() {
+  var strength = $("#password-strength-meter").val();
+
   $("#password").keyup(function() {
-    document.getElementById('inputMain').style.marginTop = '24%';
+    if (strength != 4) {
+      document.getElementById('inputMain').style.marginTop = '24%';
+      document.getElementById('scrollDown').style.display = 'block';
+
+    } else {
+
+      document.getElementById('scrollDown').style.display = 'none';
+
+    }
   });
   $("#masterRePassword").keyup(function() {
+    document.getElementById('scrollDown').style.display = 'none';
+
+  });
+  $("#masterRePassword").keyup(function() {
+
     if ($("#password").val() != $("#masterRePassword").val()) {
       $("#msg").html("Not matched").css("color", "red");
 
@@ -80,4 +99,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
 // Show password

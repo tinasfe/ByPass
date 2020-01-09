@@ -8,6 +8,8 @@
     <script src="popup.js"></script>
     <script src="popup1.js"></script>
     <script src="db.js"></script>
+    <link href="css/all.css" rel="stylesheet">
+
 
     <meta charset="utf-8">
     <title></title>
@@ -43,7 +45,13 @@
           </section>
               <section class="sectionCA passSection">
               <label class="labelEmailOptionCA" for="email">Password:</label>
-              <input type="emailOptionCA" name="emailOptionCA" id="createPassword" class="emailOptionCA">
+              <input type="password" name="emailOptionCA" id="createPassword" class="emailOptionCA">
+              <span toggle="#password-field" class=" fa fa-fw fa-eye field-icon toggle-password-create" id="createPass"></span>
+              <div class=" yellowMessageBox">
+                We have <strong>Auto Generated</strong> a password for you.
+                </br>
+                You can change it too!
+              </div>
             </section>
           </div>
             <div class="mainCA_bottom_main_top_btn" id="addToTinapass_create"> Create and Add  to ByPass</div>

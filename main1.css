@@ -1829,3 +1829,13 @@ padding-top:20px;
 }
 
 /*----------------------------------------------login  */
+
+.yellowMessageBox{
+  font-size: 11px;
+  text-align: center;
+  background-color: #ffc107;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 47%;
+  margin-left: 29%;}

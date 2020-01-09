@@ -1,4 +1,5 @@
-//        console.log("called");var nomber;
+
+
 var nomber;
 
 
@@ -227,6 +228,9 @@ function masterPasswordPage() {
   // // document.getElementById("p1").style.display = "none";
   // document.getElementById("p2").style.display = "block";
 
+
+
+
   if (document.getElementById("p1") != "") {
     document.getElementById("p1").style.display = "none";
     document.getElementById("p2").style.display = "block";
@@ -271,6 +275,7 @@ function change2to7() {
             // alert();
             e.stopPropagation();
        });
+
 
 
 
@@ -411,6 +416,20 @@ function change2to7() {
       alert("Your data has been saved!")
 
     });
+    // $(".editPasswordPageInputToggle1").click(function() {
+    //   var editPasswordPageInput = document.getElementsByClassName('editPassword1');
+    //   alert(editPasswordPageInput.type);
+    //
+    //   if (editPasswordPageInput.type === 'password') {
+    //     alert(editPasswordPageInput.type);
+    //     editPasswordPageInput.type = 'text';
+    //   } else {
+    //     alert(editPasswordPageInput.type);
+    //     editPasswordPageInput.type = 'password';
+    //
+    //   }
+    //
+    // });
     $(".page7_btn1").click(function() {
       container(1,"a", "a", "a",0);
     });
@@ -969,6 +988,20 @@ function change2to7() {
       document.querySelector(".editPassword1").value = generatePassword();
 
     });
+    $(".editPasswordPageInputToggle1").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword1");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
+
+    });
     $(".changePass2").click(function() {
       var gen = generatePassword();
       passInput = document.querySelector(".editPassword2");
@@ -977,20 +1010,90 @@ function change2to7() {
 
 
     });
+    $(".editPasswordPageInputToggle2").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword2");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
+
+    });
     $(".changePass3").click(function() {
       document.querySelector(".editPassword3").value = generatePassword();
+
+    });
+    $(".editPasswordPageInputToggle3").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword3");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
 
     });
     $(".changePass4").click(function() {
       document.querySelector(".editPassword4").value = generatePassword();
 
     });
+    $(".editPasswordPageInputToggle4").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword4");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
+
+    });
     $(".changePass5").click(function() {
       document.querySelector(".editPassword5").value = generatePassword();
 
     });
+    $(".editPasswordPageInputToggle5").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword5");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
+
+    });
     $(".changePass6").click(function() {
       document.querySelector(".editPassword6").value = generatePassword();
+
+    });
+    $(".editPasswordPageInputToggle6").click(function() {
+      var editPasswordPageInput = document.querySelector(".editPassword6");
+
+
+      if (editPasswordPageInput.type === 'password') {
+
+        editPasswordPageInput.type = 'text';
+      } else {
+
+        editPasswordPageInput.type = 'password';
+
+      }
 
     });
 
@@ -1152,6 +1255,10 @@ function closeTab() {
 // DB
 
 $(document).ready(function() {
+
+
+
+
   $(".createTitle").innerText = "Create an account on " + websiteP;
   $(".loginTitle").innerText = "Login to " + websiteP;
 
@@ -1884,7 +1991,7 @@ function addFromCreate() {
   console.log("addFromCreate in out side htmls Called...");
 
 
-
+  var createName = $("#createFirstName").val();
   var createEmail = $("#createEmail").val();
   var createPassword = $("#createPassword").val();
   var createWebsite = localStorage.getItem("websiteDup");
@@ -1917,7 +2024,7 @@ function addFromCreate() {
                 }
                 // alert(createWebsite + " / " + createEmail + " / " + createPassword);
                 // request.send("UserID=897987&FirstName=AMAZON&LastName=nuAlle&Email="+loginEmail+"&Password="+loginPassword+"&Mobile=0123&BirthDay=222")
-                request.send("UserID=897987&FirstName=" + createWebsite + "&LastName=nuAlle&Email=" + createEmail + "&Password=" + createPassword + "&Mobile=0123&BirthDay=01")
+                request.send("UserID=897987&FirstName=" + createName + "&LastName=nuAlle&Email=" + createEmail + "&Password=" + createPassword + "&Mobile=0123&BirthDay=01")
                 // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
 
 
@@ -2140,6 +2247,9 @@ function renderRows() {
       editPassword = clone3.querySelector(".editPassword");
       editPassword.value = password;
       editPassword.classList.add("editPassword" + num);
+
+      editPasswordPageInputToggle = clone3.querySelector("#editPasswordPageInputToggle");
+      editPasswordPageInputToggle.classList.add("editPasswordPageInputToggle" + num);
 
       changePass = clone3.querySelector(".changePass");
       changePass.classList.add("changePass" + num);

@@ -51,6 +51,7 @@
           		<meter max="4" id="password-strength-meter"></meter>
           		<p id="password-strength-text"></p>
             </section>
+
           </div>
           <div class=" input3_page1 "id="inputMain">
             <section class=" section">
@@ -63,6 +64,12 @@
 
         </div>
         <div class=" bottom_page1 ">
+          <div class="scrollDown" id="scrollDown">
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <div class="chevron"></div>
+            <span class="text">Scroll down</span>
+          </div>
           <button class=" btn1_page1">Create ByPass Account</button>
         </div>
       <!-- </form> -->
@@ -317,7 +324,9 @@
               <tr>
                 <th>Password</th>
                 <td class=" ">
-                  <input  name="editPasswordInput" class=" editPassword">
+                  <input  name="editPasswordInput" class=" editPassword" id="editPasswordPageInput" type="password">
+                  <span toggle="#password-field" class=" fa fa-fw fa-eye field-icon toggle-password-create" id="editPasswordPageInputToggle"></span>
+
                 </td>
 
               </tr>

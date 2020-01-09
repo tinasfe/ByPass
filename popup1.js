@@ -1,7 +1,41 @@
+function generatePassword() {
+  var length = 10,
+    charset = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+|}{}ABCDEFGHIJKLM^&*()_+|NOPQRSTUVWXYZ0123456789!@#$%^&*()_+|}{}",
+    retVal = "";
+  for (var i = 0, n = charset.length; i < length; ++i) {
+    retVal += charset.charAt(Math.floor(Math.random() * n));
+  }
+  return retVal;
+}
+
+function showPassCreatePassword() {
+  const createPassword = document.getElementById('createPassword');
+  if (createPassword.type === 'password') {
+    createPassword.type = 'text';
+  } else {
+    createPassword.type = 'password';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // document.querySelector('.toggle-password').addEventListener('click', showPass);
+  $("#createPass").click(function(){
+
+    showPassCreatePassword();
+    });
+  });
+
+
+
+
+
+
 $(document).ready(function() {
 
-
-
+  window.onload = function() {
+    const createPassword = document.getElementById('createPassword');
+    createPassword.value = generatePassword();
+  };
 
 
   // var strength = $("#password-strength-meter").val();
@@ -49,9 +83,6 @@ $(document).ready(function() {
        });
 
 });
-
-
-
 
 
 
@@ -105,11 +136,5 @@ $(document).ready(function() {
             // alert();
             e.stopPropagation();
        });
-
-
-
-
-
-
 
 });
