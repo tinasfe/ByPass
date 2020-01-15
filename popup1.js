@@ -1,5 +1,5 @@
 function generatePassword() {
-  var length = 10,
+  var length = 12,
     charset = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+|}{}ABCDEFGHIJKLM^&*()_+|NOPQRSTUVWXYZ0123456789!@#$%^&*()_+|}{}",
     retVal = "";
   for (var i = 0, n = charset.length; i < length; ++i) {
@@ -17,13 +17,30 @@ function showPassCreatePassword() {
   }
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
-  // document.querySelector('.toggle-password').addEventListener('click', showPass);
   $("#createPass").click(function(){
 
     showPassCreatePassword();
     });
   });
+
+function showPassLoginPassword() {
+  const createPassword = document.getElementById('loginPassword');
+  if (createPassword.type === 'password') {
+    createPassword.type = 'text';
+  } else {
+    createPassword.type = 'password';
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  $("#loginPass").click(function(){
+    showPassLoginPassword();
+    });
+  });
+
 
 
 
@@ -50,7 +67,7 @@ $(document).ready(function() {
 
 
     document.getElementById("CreateTitlee").innerText = "Create an account on " + items.websiteP;
-    if (items.websiteP == "amazon" || items.websiteP == "www.amazon.com") {
+    if (items.websiteP == "amazon" || items.websiteP == "www.amazon.com" || items.websiteP == "amazon.safaie.ca") {
       // alert("amazon page is called...");
       $(".fnameSection").removeClass("off");
       $(".lnameSection").removeClass("off");
@@ -60,6 +77,8 @@ $(document).ready(function() {
       $('.mainCA_top').css('height', '10%');
       $('.mainCA_bottom_main_top_btn').css('height', '13%');
       $('.mainCA_bottom_main_top_main').css('height', '86%');
+    } else {
+
     }
 
   });
@@ -72,6 +91,7 @@ $(document).ready(function() {
            var newItem =
            {
             'class': $(this).attr('class'),
+            'content': "",
             'timestamp': Date.now()
            };
 
@@ -79,7 +99,7 @@ $(document).ready(function() {
 
             localStorage.setItem('itemsArray', JSON.stringify(oldItems));
             // alert();
-            e.stopPropagation();
+            // e.stopPropagation();
        });
 
 });
@@ -127,6 +147,7 @@ $(document).ready(function() {
            var newItem =
            {
             'class': $(this).attr('class'),
+            'content': "",
             'timestamp': Date.now()
            };
 
@@ -134,7 +155,7 @@ $(document).ready(function() {
 
             localStorage.setItem('itemsArray', JSON.stringify(oldItems));
             // alert();
-            e.stopPropagation();
+            // e.stopPropagation();
        });
 
 });

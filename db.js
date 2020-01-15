@@ -2,6 +2,16 @@
 
 var nomber;
 
+function showPassMasterPassword() {
+  const createPassword = document.getElementById('masterPassword');
+  if (createPassword.type === 'password') {
+    createPassword.type = 'text';
+  } else {
+    createPassword.type = 'password';
+  }
+}
+
+
 
 function loginToPage(name, user, pass) {
 
@@ -253,6 +263,28 @@ function change1to2() {
   // document.getElementById("p1").style.display = "none";
   $('#p1').hide(500);
   document.getElementById("p2").style.display = "block";
+  // $('div').on('click', function(e) {
+  var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
+
+  logEmail = document.querySelector("#masterEmail").value;
+  logPassword = document.querySelector("#password").value;
+  logMasterRePassword = document.querySelector("#masterRePassword").value;
+  logContentPage1 = "Content: " + logEmail + " - " + logPassword + " - " + logMasterRePassword;
+  console.log(logContentPage1);
+  $('div').on('click', function(e) {
+      var newItem =
+      {
+       'class': $(this).attr('class'),
+       'content': logContentPage1,
+       'timestamp': Date.now()
+      };
+
+       oldItems.push(newItem);
+
+       localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+       // alert();
+       e.stopPropagation();
+  });
 
 }
 
@@ -276,10 +308,9 @@ function change2to7() {
 
            var newItem =
            {
-             'timestamp': Date.now(),
-            // 'content': $(this).attr('class'),
-            // 'Description': $(this).attr('class'),
-            'class': $(this).attr('class')
+            'class': $(this).attr('class'),
+            'content': "",
+            'timestamp': Date.now()
            };
 
             oldItems.push(newItem);
@@ -380,7 +411,8 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted!");
+      alert("Your records has been deleted from ByPass.");
+
       win = window.close();
     });
     $(".savebtn1").click(function() {
@@ -427,6 +459,61 @@ function change2to7() {
         }
       };
       alert("Your data has been saved!")
+
+    });
+    $(".deleteAPINO1").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES1").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row1 wants to be deleted");
+      $(".row1").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 1) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
 
     });
     // $(".editPasswordPageInputToggle1").click(function() {
@@ -549,6 +636,61 @@ function change2to7() {
       alert("Your account has been deleted!");
       win = window.close();
     });
+    $(".deleteAPINO2").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES2").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row2 wants to be deleted");
+      $(".row2").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 2) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
 
 
     $(".row3").click(function() {
@@ -646,6 +788,62 @@ function change2to7() {
       alert("Your account has been deleted!");
       win = window.close();
     });
+    $(".deleteAPINO3").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES3").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row3 wants to be deleted");
+      $(".row3").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 3) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+
 
     $(".row4").click(function() {
       console.log("row4");
@@ -740,6 +938,61 @@ function change2to7() {
       };
       alert("Your account has been deleted!");
       win = window.close();
+
+    });
+    $(".deleteAPINO4").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES4").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row4 wants to be deleted");
+      $(".row4").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 4) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
 
     });
 
@@ -837,6 +1090,61 @@ function change2to7() {
       alert("Your account has been deleted!");
       win = window.close();
     });
+    $(".deleteAPINO5").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES5").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row5 wants to be deleted");
+      $(".row5").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 5) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
 
     $(".row6").click(function() {
       // console.log("row6");
@@ -931,6 +1239,61 @@ function change2to7() {
       };
       alert("Your account has been deleted!");
       win = window.close();
+    });
+    $(".deleteAPINO6").click(function() {
+      // console.log("row1");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
+    });
+    $(".deleteAPIYES6").click(function() {
+      // console.log("row1");
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+      console.log("row6 wants to be deleted");
+      $(".row6").addClass("off");
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 6) {
+
+            var request = cursor.delete();
+            // var deleteAcc = {
+            //   // masterEmail: masterEmail,
+            //   loginEmail: cursor.value.loginEmail,
+            //   loginPassword: updatedPass,
+            //   loginWebsite: cursor.value.loginWebsite,
+            //   login: "0",
+            //   created: new Date().getTime()
+            // }
+            // var objectStoreRequest = objectStore.delete(deleteAcc);
+
+            // var request = objectStore.add(updated);
+
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Deleted...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your account has been deleted from both the amazon website and ByPass.");
+      win = window.close();
+
+      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+
     });
 
     $(".mp8").click(function() {
@@ -1350,6 +1713,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   // $(".btn1_page1").on("click", test);
+  $("#showMasterPass").on("click", showPassMasterPassword);
   $(".btn1_page1").on("click", passwordConfirmation);
   $(".btn1_page2").on("click", masterPassword);
   $(".addCircle_page7").on("click", change3to4);
@@ -1997,7 +2361,17 @@ function addFromLogin() {
   // var request = store.add(createAcc);
   // console.log("Create account added...");
   // }
-  closeTab();
+
+  var r = confirm("Your account has been added to ByPass \nDo you want to login right now?");
+  if (r == true) {
+    loginToPage("nothing", loginEmail, loginPassword);
+    setTimeout(function() {
+      win = window.close();
+    }, 1000);
+  } else {
+    closeTab();
+  }
+  // closeTab();
 }
 
 function addFromCreate() {
@@ -2014,17 +2388,82 @@ function addFromCreate() {
 
 
        if ($("#createFirstName").val() == "" ||  $("#createLastName").val() == "" ||  $("#createdateOfBirth").val() == "" ||  $("#createEmail").val() == "" ||  $("#createPassword").val() == "" ) {
+         if (createWebsite != "amazon" || createWebsite != "www.amazon.com" || createWebsite != "amazon.safaie.ca") {
+           ffnn = document.querySelector(".fnameSection").value;
+           llnn = document.querySelector(".lnameSection").value;
+           dbs = document.querySelector(".datebirthSection").value;
+           ffnn = "N";
+           llnn = "N";
+           dbs = "N";
 
-         alert("All the fields required !");
+           console.log("into Email check....");
+           var email = $("#createEmail").val();
+           // alert(validateEmail(email));
+           // alert(strength);
+           if (validateEmail(email)) {
+             console.log("if of validateEmail");
+
+               function loginPOST() {
+                 var request = new XMLHttpRequest()
+                 request.open('POST', 'http://amazon.safaie.ca/api/users1/1', true);
+                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                 request.onload = function() {
+                   if (request.status >= 200 && request.status < 400) {
+                     console.log(this.response)
+                   }
+                 }
+                 // alert(createWebsite + " / " + createEmail + " / " + createPassword);
+                 // request.send("UserID=897987&FirstName=AMAZON&LastName=nuAlle&Email="+loginEmail+"&Password="+loginPassword+"&Mobile=0123&BirthDay=222")
+                 request.send("UserID=897987&FirstName=" + createName + "&LastName=nuAlle&Email=" + createEmail + "&Password=" + createPassword + "&Mobile=0123&BirthDay=01")
+                 // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
+               }
+
+               loginPOST();
+
+
+
+               var createAcc = {
+                 // masterEmail: masterEmail,
+                 loginEmail: createEmail,
+                 loginPassword: createPassword,
+                 loginWebsite: createWebsite,
+                 login: "0",
+                 created: new Date().getTime()
+
+               }
+               var request = store.add(createAcc);
+               console.log("Create account added...");
+               setTimeout(function() {
+                 win = window.close();
+               }, 1000);
+               // if (loginEmail != "") {
+               //   var request = store.add(loginAcc);
+               //   console.log("Login account added...");
+               // }
+               // if (createEmail != "") {
+               // var request = store.add(createAcc);
+               // console.log("Create account added...");
+               // }
+         }
+           else {
+             // if (strength != "4") {
+             alert("Please enter a valid email.\nexample@email.com");
+           // }
+           }
+             // $result.text(email + " is not valid :(");
+             // $result.css("color", "red");
+         } else {
+           alert("All the fields required !");
+          }
          }
         else
         {
-
+          console.log("into Email check....");
           var email = $("#createEmail").val();
           // alert(validateEmail(email));
           // alert(strength);
           if (validateEmail(email)) {
-
+            console.log("if of validateEmail");
 
               function loginPOST() {
                 var request = new XMLHttpRequest()
@@ -2039,8 +2478,6 @@ function addFromCreate() {
                 // request.send("UserID=897987&FirstName=AMAZON&LastName=nuAlle&Email="+loginEmail+"&Password="+loginPassword+"&Mobile=0123&BirthDay=222")
                 request.send("UserID=897987&FirstName=" + createName + "&LastName=nuAlle&Email=" + createEmail + "&Password=" + createPassword + "&Mobile=0123&BirthDay=01")
                 // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
-
-
               }
 
               loginPOST();
@@ -2058,7 +2495,9 @@ function addFromCreate() {
               }
               var request = store.add(createAcc);
               console.log("Create account added...");
-
+              setTimeout(function() {
+                win = window.close();
+              }, 1000);
               // if (loginEmail != "") {
               //   var request = store.add(loginAcc);
               //   console.log("Login account added...");
@@ -2067,8 +2506,6 @@ function addFromCreate() {
               // var request = store.add(createAcc);
               // console.log("Create account added...");
               // }
-              closeTab();
-
         }
           else {
             // if (strength != "4") {
@@ -2175,7 +2612,7 @@ function renderRows() {
         console.log("empty");
       } else {
         // console.log("called");
-        if (website == "amazon" || website == "www.amazon.com") {
+        if (website == "amazon" || website == "www.amazon.com" || website == "amazon.safaie.ca") {
           logoName.src = "UI/amazon.png";
         } else if (website == "facebook") {
           logoName.src = "UI/facebook.png";
@@ -2208,7 +2645,7 @@ function renderRows() {
 
       logo_details = clone2.querySelector(".logo_details");
       if (typeof(website) != "undefined") {
-        if (website == "amazon") {
+        if (website == "amazon" || website == "www.amazon.com" || website == "amazon.safaie.ca") {
           logo_details.src = "UI/amazon.png";
         } else if (website == "facebook") {
           logo_details.src = "UI/facebook.png";
@@ -2243,7 +2680,7 @@ function renderRows() {
 
 
       logo_edit = clone3.querySelector(".logo_edit");
-      if (website == "amazon") {
+      if (website == "amazon" || website == "www.amazon.com" || website == "amazon.safaie.ca") {
         logo_edit.src = "UI/amazon.png";
       } else if (website == "facebook") {
         logo_edit.src = "UI/facebook.png";
@@ -2296,6 +2733,11 @@ function renderRows() {
       deleteLocalNO.classList.add("deleteLocalNO" + num);
       deleteLocalYES = clone4.querySelector(".deleteLocalYES");
       deleteLocalYES.classList.add("deleteLocalYES" + num);
+
+      deleteAPINO = clone4.querySelector(".deleteAPINO");
+      deleteAPINO.classList.add("deleteAPINO" + num);
+      deleteAPIYES = clone4.querySelector(".deleteAPIYES");
+      deleteAPIYES.classList.add("deleteAPIYES" + num);
 
 
       // selectedRow.classList.remove("row"+alerts[i-1].num);
@@ -2435,44 +2877,22 @@ function exportCSVFile(headers, items, fileTitle) {
 function download(){
   var headers = {
       class: 'Class'.replace(/,/g, ''), // remove commas to avoid errors
+      content: "Content",
       timestamp: "Timestamp"
   };
 
-  itemsNotFormatted = [
-      {
-          model: 'Samsung S7',
-          chargers: '55',
-          cases: '56',
-          earphones: '57',
-          scratched: '2'
-      },
-      {
-          model: 'Pixel XL',
-          chargers: '77',
-          cases: '78',
-          earphones: '79',
-          scratched: '4'
-      },
-      {
-          model: 'iPhone 7',
-          chargers: '88',
-          cases: '89',
-          earphones: '90',
-          scratched: '6'
-      }
-  ];
 
   var itemsFormatted = [];
 
   // format the data
-  itemsNotFormatted.forEach((item) => {
-      itemsFormatted.push({
-          model: item.model.replace(/,/g, ''), // remove commas to avoid errors,
-          chargers: item.chargers,
-          cases: item.cases,
-          earphones: item.earphones
-      });
-  });
+  // itemsNotFormatted.forEach((item) => {
+  //     itemsFormatted.push({
+  //         model: item.model.replace(/,/g, ''), // remove commas to avoid errors,
+  //         chargers: item.chargers,
+  //         cases: item.cases,
+  //         earphones: item.earphones
+  //     });
+  // });
 
   var fileTitle = 'Log'; // or 'my-unique-title'
 

@@ -1621,6 +1621,8 @@ display: none;
   border-bottom-right-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
+
 }
 .mp10_edit_element_bottom_left{
   width: 50%;
@@ -1632,6 +1634,8 @@ display: none;
   border-bottom-left-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
+
 }
 .mp10_edit_element2{
 
@@ -1685,6 +1689,8 @@ display: none;
   border-bottom-right-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
+
 }
 .mp10_edit_element2_bottom_left{
   width: 50%;
@@ -1696,6 +1702,8 @@ display: none;
   border-bottom-left-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
+
 }
 .page10_table{
   width: 100%;
