@@ -174,6 +174,12 @@ $(document).ready(function() {
 $(document).ready(function() {
   var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
+  shortcut.add("Ctrl+Shift+L",function() {
+  	alert("Hi there!");
+    download();
+
+  });
+
 
   $('div').on('click', function(e) {
     logContentPage3 = "--";
@@ -2254,11 +2260,6 @@ function masterPassword() {
   // Set up a request to get the sticky note with the key 1
 
 
-shortcut.add("Ctrl+Shift+L",function() {
-	alert("Hi there!");
-  download();
-
-});
 
 
 
