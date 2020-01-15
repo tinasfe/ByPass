@@ -181,6 +181,9 @@ $(document).ready(function() {
   });
 
 
+
+
+
   $('div').on('click', function(e) {
     logContentPage3 = "--";
     var inputVal1 = document.querySelector("#masterEmail");
