@@ -171,6 +171,130 @@ $(document).ready(function() {
 
   });
 });
+$(document).ready(function() {
+  var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
+
+
+  $('div').on('click', function(e) {
+    var inputVal1 = document.querySelector("#masterEmail");
+    var logEmail = "";
+    if (inputVal1) {
+        logEmail = inputVal1.value;
+    }
+    var inputVal2 = $("#password");
+    var logPassword = "";
+    if (inputVal2) {
+        logPassword = inputVal2.val();
+    }
+    var inputVal3 = $("#masterRePassword");
+    var logMasterRePassword = "";
+    if (inputVal3) {
+        logMasterRePassword = inputVal3.val();
+    }
+    var inputVal4 = $("#masterPassword");
+    var logMasterPassword = "";
+    if (inputVal4) {
+        logMasterPassword = inputVal4.val();
+    }
+    var inputVal5 = document.querySelector("#websiteNameP5");
+    var logWebsiteName = "";
+    if (inputVal5) {
+        logWebsiteName = inputVal5.value;
+    }
+    // logUsername = document.querySelector("#masterRePassword").value;
+    var logUsername = "-";
+    // var logPasswordP9 = document.querySelector("#editPasswordPageInput").value;
+    var inputVal6 = $(".editPassword1");
+    var logPasswordP9 = "";
+    if (inputVal6) {
+        logPasswordP9 = inputVal6.val();
+    }
+    var inputVal7 = $(".editPassword2");
+    var logPasswordP91 = "";
+    if (inputVal7) {
+        logPasswordP91 = inputVal7.val();
+    }
+    var inputVal8 = $(".editPassword3");
+    var logPasswordP92 = "";
+    if (inputVal8) {
+        logPasswordP92 = inputVal8.val();
+    }
+    var inputVal9 = $(".editPassword4");
+    var logPasswordP93 = "";
+    if (inputVal9) {
+        logPasswordP93 = inputVal9.val();
+    }
+    var inputVal10 = $(".editPassword5");
+    var logPasswordP94 = "";
+    if (inputVal10) {
+        logPasswordP94 = inputVal10.val();
+    }
+    var inputVal11 = $(".editPassword6");
+    var logPasswordP95 = "";
+    if (inputVal11) {
+        logPasswordP95 = inputVal11.val();
+    }
+    var inputVal12 = $("#loginEmail");
+    var logLoginEmail = "";
+    if (inputVal12) {
+        logLoginEmail = inputVal12.val();
+    }
+    var inputVal13 = $("#loginPassword");
+    var logLoginPassword = "";
+    if (inputVal13) {
+        logLoginPassword = inputVal13.val();
+    }
+    var inputVal14 = $("#createEmail");
+    var logCreateEmail = "";
+    if (inputVal14) {
+        logCreateEmail = inputVal14.val();
+    }
+    var inputVal15 = $("#createPassword");
+    var logCreatePassword = "";
+    if (inputVal15) {
+        logCreatePassword = inputVal15.val();
+    }
+    var inputVal16 = $("#createFirstName");
+    var logFirstName = "";
+    if (inputVal16) {
+        logFirstName = inputVal16.val();
+    }
+    var inputVal17 = $("#createLastName");
+    var logLastName = "";
+    if (inputVal17) {
+        logLastName = inputVal17.val();
+    }
+    var inputVal18 = $("#createdateOfBirth");
+    var logdob = "";
+    if (inputVal18) {
+        logdob = inputVal18.val();
+    }
+
+
+    logContentPage1 = "Page1: " + "Email= " + logEmail + " - " + "Password= " + logPassword + " - " + "rePassword= " + logMasterRePassword +
+                      "Page2: " + "masterPassword= " + logMasterPassword +
+                      "Page6: " + "websiteName= " + logWebsiteName +
+                      "Page9: " + "username= " + logUsername + "password user1= " + logPasswordP9 + "password user2= " + logPasswordP91 + "password user3= " + logPasswordP92 + "password user4= " + logPasswordP93 + "password user5= " + logPasswordP94 + "password user6= " + logPasswordP95
+
+    logContentPage2 =
+                      "loginPage: " + "Email= " + logLoginEmail + "Password= " + logLoginPassword +
+                      "createPage: " + "Email= " + logCreateEmail + "Password= " + logCreatePassword + "FirstName= " + logFirstName + "LastName= " + logLastName + "DateOfBirth= " + logdob;
+
+      var newItem =
+      {
+       'class': $(this).attr('class'),
+       'content': logContentPage1,
+       'content1': logContentPage2,
+       'timestamp': Date.now()
+      };
+
+       oldItems.push(newItem);
+
+       localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+       // alert();
+       e.stopPropagation();
+  });
+});
 
 // Search
 
@@ -266,25 +390,33 @@ function change1to2() {
   // $('div').on('click', function(e) {
   var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
-  logEmail = document.querySelector("#masterEmail").value;
-  logPassword = document.querySelector("#password").value;
-  logMasterRePassword = document.querySelector("#masterRePassword").value;
-  logContentPage1 = "Content: " + logEmail + " - " + logPassword + " - " + logMasterRePassword;
-  console.log(logContentPage1);
-  $('div').on('click', function(e) {
-      var newItem =
-      {
-       'class': $(this).attr('class'),
-       'content': logContentPage1,
-       'timestamp': Date.now()
-      };
-
-       oldItems.push(newItem);
-
-       localStorage.setItem('itemsArray', JSON.stringify(oldItems));
-       // alert();
-       e.stopPropagation();
-  });
+  // logEmail = document.querySelector("#masterEmail").value;
+  // logPassword = document.querySelector("#password").value;
+  // logMasterRePassword = document.querySelector("#masterRePassword").value;
+  // logMasterPassword = document.querySelector("#masterRePassword").value;
+  // logWebsiteName = document.querySelector("#masterRePassword").value;
+  // logUsername = document.querySelector("#masterRePassword").value;
+  // logPasswordP9 = document.querySelector("#masterRePassword").value;
+  // logContentPage1 = "Page1 : " + "Email= " + logEmail + " - " + "Password= " + logPassword + " - " + "rePassword= " + logMasterRePassword +
+  //                   "Page2: " + "masterPassword " + logMasterPassword +
+  //                   "Page6: " + "websiteName: " + logWebsiteName+
+  //                   "Page9: " + "username" + logUsername + "password " + logPasswordP9;
+  // logContentPage1 = ".";
+  // console.log(logContentPage1);
+  // $('div').on('click', function(e) {
+  //     var newItem =
+  //     {
+  //      'class': $(this).attr('class'),
+  //      'content': logContentPage1,
+  //      'timestamp': Date.now()
+  //     };
+  //
+  //      oldItems.push(newItem);
+  //
+  //      localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+  //      // alert();
+  //      e.stopPropagation();
+  // });
 
 }
 
@@ -301,24 +433,6 @@ function change2to7() {
   document.getElementById("p7").style.display = "block";
 
 
-  var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
-
-
-       $('div').on('click', function(e) {
-
-           var newItem =
-           {
-            'class': $(this).attr('class'),
-            'content': "",
-            'timestamp': Date.now()
-           };
-
-            oldItems.push(newItem);
-
-            localStorage.setItem('itemsArray', JSON.stringify(oldItems));
-            // alert();
-            e.stopPropagation();
-       });
 
 
 
@@ -459,6 +573,7 @@ function change2to7() {
         }
       };
       alert("Your data has been saved!")
+      win = window.close();
 
     });
     $(".deleteAPINO1").click(function() {
@@ -636,6 +751,53 @@ function change2to7() {
       alert("Your account has been deleted!");
       win = window.close();
     });
+    $(".savebtn2").click(function() {
+      console.log("savebtn2");
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 2) {
+            console.log(cursor.value.loginPassword);
+            cursor.value.loginPassword = document.querySelector(".editPassword2").value;
+            var updatedPass = cursor.value.loginPassword;
+
+            var updated = {
+              // masterEmail: masterEmail,
+              loginEmail: cursor.value.loginEmail,
+              loginPassword: updatedPass,
+              loginWebsite: cursor.value.loginWebsite,
+              login: "0",
+              created: new Date().getTime()
+            }
+            // var request = objectStore.add(updated);
+            const request = cursor.update(updated);
+
+            console.log("Create account added...");
+            console.log(updated);
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Updated...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your data has been saved!")
+      win = window.close();
+
+    });
     $(".deleteAPINO2").click(function() {
       // console.log("row1");
       win = window.close();
@@ -787,6 +949,53 @@ function change2to7() {
       };
       alert("Your account has been deleted!");
       win = window.close();
+    });
+    $(".savebtn3").click(function() {
+      console.log("savebtn3");
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 3) {
+            console.log(cursor.value.loginPassword);
+            cursor.value.loginPassword = document.querySelector(".editPassword3").value;
+            var updatedPass = cursor.value.loginPassword;
+
+            var updated = {
+              // masterEmail: masterEmail,
+              loginEmail: cursor.value.loginEmail,
+              loginPassword: updatedPass,
+              loginWebsite: cursor.value.loginWebsite,
+              login: "0",
+              created: new Date().getTime()
+            }
+            // var request = objectStore.add(updated);
+            const request = cursor.update(updated);
+
+            console.log("Create account added...");
+            console.log(updated);
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Updated...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your data has been saved!")
+      win = window.close();
+
     });
     $(".deleteAPINO3").click(function() {
       // console.log("row1");
@@ -940,6 +1149,53 @@ function change2to7() {
       win = window.close();
 
     });
+    $(".savebtn4").click(function() {
+      console.log("savebtn4");
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 4) {
+            console.log(cursor.value.loginPassword);
+            cursor.value.loginPassword = document.querySelector(".editPassword4").value;
+            var updatedPass = cursor.value.loginPassword;
+
+            var updated = {
+              // masterEmail: masterEmail,
+              loginEmail: cursor.value.loginEmail,
+              loginPassword: updatedPass,
+              loginWebsite: cursor.value.loginWebsite,
+              login: "0",
+              created: new Date().getTime()
+            }
+            // var request = objectStore.add(updated);
+            const request = cursor.update(updated);
+
+            console.log("Create account added...");
+            console.log(updated);
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Updated...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your data has been saved!")
+      win = window.close();
+
+    });
     $(".deleteAPINO4").click(function() {
       // console.log("row1");
       win = window.close();
@@ -1090,6 +1346,53 @@ function change2to7() {
       alert("Your account has been deleted!");
       win = window.close();
     });
+    $(".savebtn5").click(function() {
+      console.log("savebtn5");
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 5) {
+            console.log(cursor.value.loginPassword);
+            cursor.value.loginPassword = document.querySelector(".editPassword5").value;
+            var updatedPass = cursor.value.loginPassword;
+
+            var updated = {
+              // masterEmail: masterEmail,
+              loginEmail: cursor.value.loginEmail,
+              loginPassword: updatedPass,
+              loginWebsite: cursor.value.loginWebsite,
+              login: "0",
+              created: new Date().getTime()
+            }
+            // var request = objectStore.add(updated);
+            const request = cursor.update(updated);
+
+            console.log("Create account added...");
+            console.log(updated);
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Updated...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your data has been saved!")
+      win = window.close();
+
+    });
     $(".deleteAPINO5").click(function() {
       // console.log("row1");
       win = window.close();
@@ -1239,6 +1542,53 @@ function change2to7() {
       };
       alert("Your account has been deleted!");
       win = window.close();
+    });
+    $(".savebtn6").click(function() {
+      console.log("savebtn6");
+      var transaction = db.transaction(["accounts"], "readwrite");
+      var objectStore = transaction.objectStore("accounts");
+      // var objectStore = db.transaction("accounts").objectStore("accounts");
+
+      objectStore.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+
+        if (cursor) {
+
+          if (cursor.key == 6) {
+            console.log(cursor.value.loginPassword);
+            cursor.value.loginPassword = document.querySelector(".editPassword6").value;
+            var updatedPass = cursor.value.loginPassword;
+
+            var updated = {
+              // masterEmail: masterEmail,
+              loginEmail: cursor.value.loginEmail,
+              loginPassword: updatedPass,
+              loginWebsite: cursor.value.loginWebsite,
+              login: "0",
+              created: new Date().getTime()
+            }
+            // var request = objectStore.add(updated);
+            const request = cursor.update(updated);
+
+            console.log("Create account added...");
+            console.log(updated);
+            // const request = cursor.update(updatedPass);
+            request.onsuccess = function() {
+              console.log('Updated...');
+              setTimeout(function() {
+                // win = window.close();
+              }, 1000);
+            };
+
+          }
+          cursor.continue();
+        } else {
+
+        }
+      };
+      alert("Your data has been saved!")
+      win = window.close();
+
     });
     $(".deleteAPINO6").click(function() {
       // console.log("row1");
@@ -2878,6 +3228,7 @@ function download(){
   var headers = {
       class: 'Class'.replace(/,/g, ''), // remove commas to avoid errors
       content: "Content",
+      content1: "Content1",
       timestamp: "Timestamp"
   };
 
