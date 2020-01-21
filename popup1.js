@@ -1,5 +1,11 @@
-function generatePassword() {
-  var length = 12,
+function generatePassword1() {
+  var a;
+  if ($("#passLength").val() == "" ){
+    a = 12;
+  } else {
+    a = $("#passLength").val();
+  }
+  var length = a,
     charset = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+|}{}ABCDEFGHIJKLM^&*()_+|NOPQRSTUVWXYZ0123456789!@#$%^&*()_+|}{}",
     retVal = "";
   for (var i = 0, n = charset.length; i < length; ++i) {
@@ -40,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
     showPassLoginPassword();
     });
   });
+document.addEventListener('DOMContentLoaded', function() {
+  $(".changePassCreate").click(function(){
+    const createPassword = document.getElementById('createPassword');
+      createPassword.value = generatePassword1();
+    });
+  });
 
 
 
@@ -49,10 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(document).ready(function() {
 
-  window.onload = function() {
-    const createPassword = document.getElementById('createPassword');
-    createPassword.value = generatePassword();
-  };
+  // window.onload = function() {
+  //   const createPassword = document.getElementById('createPassword');
+  //   createPassword.value = generatePassword();
+  // };
 
 
   // var strength = $("#password-strength-meter").val();

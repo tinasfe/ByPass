@@ -332,7 +332,7 @@ padding-top: 10%;
 .mp3{
 margin-left: 25%;
 margin-top: -10%;
-
+width: 75%;
 }
 
 /*----------------------------------------------Page 3  */
@@ -397,7 +397,7 @@ margin-top: -10%;
 }
 .mp4_back{
 
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -503,7 +503,7 @@ padding-top: 30px;
 }
 .mp5_back{
 
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -645,7 +645,7 @@ padding-top: 30px;
 }
 .mp6_back{
 
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -834,7 +834,7 @@ display: none;
 }
 .mp7_back{
 
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -997,7 +997,7 @@ display: none;
   margin-top: 0.5%;
 }
 .mp8_back{
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -1126,6 +1126,8 @@ display: none;
   border-bottom-right-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
+
 }
 .mp8_edit_element_bottom_left{
   width: 50%;
@@ -1137,6 +1139,7 @@ display: none;
   border-bottom-left-radius: 19px;
   color: white;
   font-size: 20px;
+  cursor: pointer;
 }
 .page8_table{
   width: 100%;
@@ -1155,6 +1158,8 @@ display: none;
   margin-top: 1em;
   font-size: 20px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
+
 }
 /*----------------------------------------------Page 8  */
 /*----------------------------------------------Page 9  */
@@ -1241,7 +1246,7 @@ display: none;
   margin-top: 0.5%;
 }
 .mp9_back{
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;
@@ -1501,7 +1506,7 @@ display: none;
   margin-top: 0.5%;
 }
 .mp10_back{
-  height: 3%;
+  height: 8%;
   text-align: center;
   line-height: 40px;
   color: white;

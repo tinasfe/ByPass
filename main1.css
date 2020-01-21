@@ -1678,6 +1678,7 @@ display: none;
 .labelEmailOptionCA{
   display: inline;
   line-height: 30px;
+  margin-top: 5%;
 }
 .emailOptionCA{
   width: 50%;
@@ -1839,3 +1840,34 @@ padding-top:20px;
   margin-top: 10px;
   width: 47%;
   margin-left: 29%;}
+
+  .create_btn_edit{
+background-color: #3988b5;
+padding: 10px;
+/* padding-left: 55px; */
+/* padding-right: 55px; */
+border-radius: 10px;
+color: white;
+margin-left: 10em;
+float: left;
+
+margin-top: -2.5em;
+
+/* font-size: 20px; */
+cursor: pointer;
+
+  }
+
+.len{
+  margin-top:5%;
+  width: 5% !important;
+  margin-left: 4%;
+}
+
+
+.leftT{
+  float:left;
+}
+.rightT{
+  float:right;
+}

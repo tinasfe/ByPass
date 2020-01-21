@@ -2,6 +2,21 @@
 
 var nomber;
 
+function delPOST(name,email,pass) {
+  var request = new XMLHttpRequest()
+  request.open('POST', 'http://amazon.safaie.ca/api/users1/1', true);
+  request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
+      console.log(this.response)
+    }
+  }
+  // alert(createWebsite + " / " + createEmail + " / " + createPassword);
+  // request.send("UserID=897987&FirstName=AMAZON&LastName=nuAlle&Email="+loginEmail+"&Password="+loginPassword+"&Mobile=0123&BirthDay=222")
+  request.send("UserID=10&FirstName=" + email + "&LastName=nuAlle&Email=" + email + "&Password=" + email + "&Mobile=0123&BirthDay=01")
+  // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
+}
+
 function showPassMasterPassword() {
   const createPassword = document.getElementById('masterPassword');
   if (createPassword.type === 'password') {
@@ -175,10 +190,36 @@ $(document).ready(function() {
   var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
   shortcut.add("Ctrl+Shift+L",function() {
-  	alert("Hi there!");
     download();
 
   });
+  // document.getElementById("enterWorks").focus();
+//   $( "#enterWorks" ).focus(function() {
+// });
+
+$(document).ready(function(){
+    $('#enterWorks').keypress(function(e){
+      if(e.keyCode==13)
+      $('#linkadd').click();
+      alert( "Handler for .focus() called." );
+
+    });
+});
+
+  // shortcut.add("Enter",function() {
+  //   alert("Hi there!");
+  //
+  //
+  // });
+  //
+  // var input = document.getElementById("enterWorks");
+  // input.addEventListener("keyup", function(event) {
+  //   if (event.keyCode === 13) {
+  //
+  //    event.preventDefault();
+  //    masterPassword();
+  //   }
+  // });
 
 
 
@@ -261,7 +302,7 @@ $(document).ready(function() {
         logPasswordP95 = inputVal11.val();
         if (logPasswordP95 != undefined) {
            logContentPage3 = "password acc2= " + logPasswordP91 + "password acc3= " + logPasswordP92 + "password acc4= " + logPasswordP93 + "password acc5= " + logPasswordP94 + "password acc6= " + logPasswordP95;
-           alert("here");
+           // alert("here");
         }
     }
     var inputVal12 = $("#loginEmail");
@@ -638,7 +679,12 @@ function change2to7() {
 
     });
     $(".deleteAPIYES1").click(function() {
-      // console.log("row1");
+      console.log("deleteLocalYES1");
+      console.log(arr[1]);
+      n=$(".mp7_row_middle_down.row1").text();
+      e=$(".mp7_row_middle_down.row1").text();
+      p=$(".mp7_row_middle_down.row1").text();
+      delPOST(n,e,p);
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
       var transaction = db.transaction(["accounts"], "readwrite");
       var objectStore = transaction.objectStore("accounts");
@@ -651,6 +697,9 @@ function change2to7() {
         if (cursor) {
 
           if (cursor.key == 1) {
+            // alert("aaaa");
+          // delPOST(cursor.loginEmail,cursor.loginEmail,cursor.loginPassword);
+          // alert(cursor.loginEmail,cursor.loginEmail,cursor.loginPassword);
 
             var request = cursor.delete();
             // var deleteAcc = {
@@ -668,6 +717,7 @@ function change2to7() {
             // const request = cursor.update(updatedPass);
             request.onsuccess = function() {
               console.log('Deleted...');
+
               setTimeout(function() {
                 // win = window.close();
               }, 1000);
@@ -679,26 +729,11 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your records has been deleted from ByPass.");
+
       win = window.close();
-
-      // $( "detail1" ).removeClass( "off" ).addClass( "on" );
-
     });
-    // $(".editPasswordPageInputToggle1").click(function() {
-    //   var editPasswordPageInput = document.getElementsByClassName('editPassword1');
-    //   alert(editPasswordPageInput.type);
-    //
-    //   if (editPasswordPageInput.type === 'password') {
-    //     alert(editPasswordPageInput.type);
-    //     editPasswordPageInput.type = 'text';
-    //   } else {
-    //     alert(editPasswordPageInput.type);
-    //     editPasswordPageInput.type = 'password';
-    //
-    //   }
-    //
-    // });
+
     $(".page7_btn1").click(function() {
       container(1,"a", "a", "a",0);
     });
@@ -862,6 +897,10 @@ function change2to7() {
     $(".deleteAPIYES2").click(function() {
       // console.log("row1");
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      n=$(".mp7_row_middle_down.row2").text();
+      e=$(".mp7_row_middle_down.row2").text();
+      p=$(".mp7_row_middle_down.row2").text();
+      delPOST(n,e,p);
       var transaction = db.transaction(["accounts"], "readwrite");
       var objectStore = transaction.objectStore("accounts");
       // var objectStore = db.transaction("accounts").objectStore("accounts");
@@ -873,6 +912,8 @@ function change2to7() {
         if (cursor) {
 
           if (cursor.key == 2) {
+            alert(cursor.key);
+            alert(cursor);
 
             var request = cursor.delete();
             // var deleteAcc = {
@@ -901,7 +942,7 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your account has been deleted from both website and ByPass.");
       win = window.close();
 
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
@@ -1061,6 +1102,10 @@ function change2to7() {
     $(".deleteAPIYES3").click(function() {
       // console.log("row1");
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
+      n=$(".mp7_row_middle_down.row3").text();
+      e=$(".mp7_row_middle_down.row3").text();
+      p=$(".mp7_row_middle_down.row3").text();
+      delPOST(n,e,p);
       var transaction = db.transaction(["accounts"], "readwrite");
       var objectStore = transaction.objectStore("accounts");
       // var objectStore = db.transaction("accounts").objectStore("accounts");
@@ -1100,7 +1145,7 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your account has been deleted from both website and ByPass.");
       win = window.close();
 
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
@@ -1258,6 +1303,10 @@ function change2to7() {
 
     });
     $(".deleteAPIYES4").click(function() {
+      n=$(".mp7_row_middle_down.row4").text();
+      e=$(".mp7_row_middle_down.row4").text();
+      p=$(".mp7_row_middle_down.row4").text();
+      delPOST(n,e,p);
       // console.log("row1");
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
       var transaction = db.transaction(["accounts"], "readwrite");
@@ -1299,7 +1348,7 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your account has been deleted from both website and ByPass.");
       win = window.close();
 
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
@@ -1455,6 +1504,10 @@ function change2to7() {
 
     });
     $(".deleteAPIYES5").click(function() {
+      n=$(".mp7_row_middle_down.row5").text();
+      e=$(".mp7_row_middle_down.row5").text();
+      p=$(".mp7_row_middle_down.row5").text();
+      delPOST(n,e,p);
       // console.log("row1");
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
       var transaction = db.transaction(["accounts"], "readwrite");
@@ -1496,7 +1549,7 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your account has been deleted from both website and ByPass.");
       win = window.close();
 
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
@@ -1652,6 +1705,10 @@ function change2to7() {
 
     });
     $(".deleteAPIYES6").click(function() {
+      n=$(".mp7_row_middle_down.row6").text();
+      e=$(".mp7_row_middle_down.row6").text();
+      p=$(".mp7_row_middle_down.row6").text();
+      delPOST(n,e,p);
       // console.log("row1");
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
       var transaction = db.transaction(["accounts"], "readwrite");
@@ -1693,13 +1750,25 @@ function change2to7() {
 
         }
       };
-      alert("Your account has been deleted from both the amazon website and ByPass.");
+      alert("Your account has been deleted from both website and ByPass.");
       win = window.close();
 
       // $( "detail1" ).removeClass( "off" ).addClass( "on" );
 
     });
 
+    $(".mp8_back").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "block";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+
+
+    });
     $(".mp8").click(function() {
       console.log("home");
       document.getElementById("p7").style.display = "block";
@@ -1712,6 +1781,19 @@ function change2to7() {
 
 
     });
+    $(".mp4_back").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "block";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+
+
+
+    });
     $(".mp4").click(function() {
       console.log("home");
       document.getElementById("p7").style.display = "block";
@@ -1719,6 +1801,19 @@ function change2to7() {
       document.getElementById("p9").style.display = "none";
       document.getElementById("p5").style.display = "none";
       document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+
+
+
+    });
+    $(".mp5_back").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "none";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "block";
       document.getElementById("p3").style.display = "none";
       document.getElementById("p6").style.display = "none";
 
@@ -1738,6 +1833,18 @@ function change2to7() {
 
 
     });
+    $(".mp6_back").click(function() {
+      // console.log("home");
+      document.getElementById("p7").style.display = "none";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+      document.getElementById("p5").style.display = "block";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+
+
+    });
     $(".mp6").click(function() {
       // console.log("home");
       document.getElementById("p7").style.display = "block";
@@ -1750,7 +1857,43 @@ function change2to7() {
 
 
     });
+    $(".mp9_back").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "none";
+      document.getElementById("p8").style.display = "block";
+      document.getElementById("p6").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+
+
+    });
     $(".mp9").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "block";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p9").style.display = "none";
+
+
+    });
+    $(".mp10_back").click(function() {
+      console.log("home");
+      document.getElementById("p7").style.display = "none";
+      document.getElementById("p8").style.display = "none";
+      document.getElementById("p6").style.display = "none";
+      document.getElementById("p5").style.display = "none";
+      document.getElementById("p4").style.display = "none";
+      document.getElementById("p3").style.display = "none";
+      document.getElementById("p9").style.display = "block";
+
+
+    });
+    $(".mp10").click(function() {
       console.log("home");
       document.getElementById("p7").style.display = "block";
       document.getElementById("p8").style.display = "none";
@@ -2039,6 +2182,8 @@ $(document).ready(function() {
 
 
 
+
+
   $(".createTitle").innerText = "Create an account on " + websiteP;
   $(".loginTitle").innerText = "Login to " + websiteP;
 
@@ -2105,6 +2250,8 @@ $(".mp9").click(function() {
 
 });
 });
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   // ...
@@ -2612,20 +2759,6 @@ function dontLoadSignUp() {
   console.log("dontLoadSignUp called ....");
   var masterPassword = $("#masterPassword").val();
 
-
-
-
-  // var transaction = db.transaction(['people'],'readonly');
-  // var objectStore = transaction.objectStore('people');
-
-  // var request = objectStore.get("masterRePassword");
-  // request.onerror = function(event) {
-  //   // Handle errors!
-  // };
-  // Set up an object store and transaction
-  // console.log(db);
-  // let tx = db.transaction('master', 'readonly');
-  // let store = tx.objectStore('master');
   let tx = db.transaction(['master'], 'readonly');
   let store = tx.objectStore('master');
   // Set up a request to get the sticky note with the key 1
@@ -2782,16 +2915,30 @@ function addFromLogin() {
   // var request = store.add(createAcc);
   // console.log("Create account added...");
   // }
+  if (loginWebsite == "amazon") {
 
-  var r = confirm("Your account has been added to ByPass \nDo you want to login right now?");
-  if (r == true) {
-    loginToPage("nothing", loginEmail, loginPassword);
-    setTimeout(function() {
-      win = window.close();
-    }, 1000);
+    var r = confirm("Your account has been added to ByPass \nDo you want to login right now?");
+    if (r == true) {
+      loginToPage("nothing", loginEmail, loginPassword);
+      setTimeout(function() {
+        win = window.close();
+      }, 1000);
+    } else {
+      closeTab();
+    }
   } else {
-    closeTab();
+    alert("Your account has been added to ByPass.");
+
   }
+  // var r = confirm("Your account has been added to ByPass \nDo you want to login right now?");
+  // if (r == true) {
+  //   loginToPage("nothing", loginEmail, loginPassword);
+  //   setTimeout(function() {
+  //     win = window.close();
+  //   }, 1000);
+  // } else {
+  //   closeTab();
+  // }
   // closeTab();
 }
 
