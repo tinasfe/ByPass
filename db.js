@@ -1,6 +1,10 @@
 
 
 var nomber;
+// enterP1 = 0;
+// enterP2 = 0;
+// localStorage.setItem("enterP1", enterP1)
+// localStorage.setItem("enterP2", enterP2)
 
 function delPOST(name,email,pass) {
   var request = new XMLHttpRequest()
@@ -197,14 +201,14 @@ $(document).ready(function() {
 //   $( "#enterWorks" ).focus(function() {
 // });
 
-$(document).ready(function(){
-    $('#enterWorks').keypress(function(e){
-      if(e.keyCode==13)
-      $('#linkadd').click();
-      alert( "Handler for .focus() called." );
-
-    });
-});
+// $(document).ready(function(){
+//     $('#enterWorks').keypress(function(e){
+//       if(e.keyCode==13)
+//       $('#linkadd').click();
+//       alert( "Handler for .focus() called." );
+//
+//     });
+// });
 
   // shortcut.add("Enter",function() {
   //   alert("Hi there!");
@@ -476,7 +480,8 @@ function masterPasswordPage() {
 
 function change1to2() {
   // document.getElementById("p1").style.display = "none";
-
+  enterP2 = 1;
+  localStorage.setItem("enterP2",enterP2);
     $('#p1').hide(500);
     document.getElementById("p2").style.display = "block";
 
@@ -512,6 +517,20 @@ function change1to2() {
   //      // alert();
   //      e.stopPropagation();
   // });
+  // shortcut.add("Enter",function() {
+  //   masterPassword();
+  //   masterPassword();
+  //   // alert("helooo");
+  //   });
+  // if ($('#p2').css('display') == 'block') {
+  //
+  //   alert($('#p2').css('display'));
+  //   shortcut.add("Enter",function() {
+  //     masterPassword();
+  //     // alert("helooo");
+  //     $('#p2').css('display') == 'none';
+  //     });
+  // }
 
 }
 
@@ -1790,7 +1809,10 @@ function change2to7() {
       document.getElementById("p4").style.display = "none";
       document.getElementById("p3").style.display = "none";
       document.getElementById("p6").style.display = "none";
-
+      if ($(".row1").length == 0) {
+        // alert("Yes");
+        $('.alt_page7').css('background-image', 'url(UI/p3-e.png)');
+      }
 
 
     });
@@ -2026,6 +2048,80 @@ function change2to3() {
   // document.getElementById("p1").style.display = "none";
   $('#p2').hide(500);
   document.getElementById("p3").style.display = "block";
+  $(".mp8_back").click(function() {
+    console.log("home");
+    document.getElementById("p7").style.display = "block";
+    document.getElementById("p8").style.display = "none";
+    document.getElementById("p9").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p6").style.display = "none";
+
+
+  });
+  $(".mp4_back").click(function() {
+    console.log("home");
+    document.getElementById("p7").style.display = "block";
+    document.getElementById("p8").style.display = "none";
+    document.getElementById("p9").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p6").style.display = "none";
+
+
+
+  });
+  $(".mp5_back").click(function() {
+    console.log("home");
+    document.getElementById("p7").style.display = "none";
+    document.getElementById("p8").style.display = "none";
+    document.getElementById("p9").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    document.getElementById("p4").style.display = "block";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p6").style.display = "none";
+
+
+
+  });
+  $(".mp6_back").click(function() {
+    // console.log("home");
+    document.getElementById("p7").style.display = "none";
+    document.getElementById("p8").style.display = "none";
+    document.getElementById("p9").style.display = "none";
+    document.getElementById("p5").style.display = "block";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p6").style.display = "none";
+
+
+  });
+  $(".mp9_back").click(function() {
+    console.log("home");
+    document.getElementById("p7").style.display = "none";
+    document.getElementById("p8").style.display = "block";
+    document.getElementById("p6").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p9").style.display = "none";
+
+
+  });
+  $(".mp10_back").click(function() {
+    console.log("home");
+    document.getElementById("p7").style.display = "none";
+    document.getElementById("p8").style.display = "none";
+    document.getElementById("p6").style.display = "none";
+    document.getElementById("p5").style.display = "none";
+    document.getElementById("p4").style.display = "none";
+    document.getElementById("p3").style.display = "none";
+    document.getElementById("p9").style.display = "block";
+
+
+  });
 
 }
 
@@ -2258,7 +2354,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     // win = window.close();
     dontLoadSignUp();
-  }, 1);
+  }, 100);
   // }, 60);
   // dontLoadSignUp();
 
@@ -2267,7 +2363,30 @@ document.addEventListener('DOMContentLoaded', function() {
   // $(".btn1_page1").on("click", test);
   $("#showMasterPass").on("click", showPassMasterPassword);
   $(".btn1_page1").on("click", passwordConfirmation);
+  // var ep1 = localStorage.getItem("enterP2");
+  // if (ep1 !== 1) {
+  //   shortcut.add("Enter",function() {
+  //       passwordConfirmation();
+  //       // enterP1 = 1;
+  //       // localStorage.setItem("enterP1",enterP1);
+  //       // enterP2 = 1;
+  //       // localStorage.setItem("enterP2",enterP2);
+  //     });
+  // }
+
+
   $(".btn1_page2").on("click", masterPassword);
+  aa = localStorage.getItem("enterP1")
+  if (aa !== 1) {
+    shortcut.add("Enter",function() {
+        masterPassword();
+        // enterP2 = 1;
+        // localStorage.setItem("enterP2",enterP2);
+        // enterP1 = 1;
+        // localStorage.setItem("enterP1",enterP1);
+      });
+
+  }
   $(".addCircle_page7").on("click", change3to4);
   $(".addCircle_page3").on("click", change3to4);
   $(".p4_row1").on("click", change4to5);
@@ -2867,7 +2986,7 @@ function addFromLogin() {
   var transaction = db.transaction(["accounts"], "readwrite");
   var store = transaction.objectStore("accounts");
 
-
+if (validateEmail(loginEmail)) {
 
 
 
@@ -2922,14 +3041,21 @@ function addFromLogin() {
       loginToPage("nothing", loginEmail, loginPassword);
       setTimeout(function() {
         win = window.close();
-      }, 1000);
+      }, 10);
     } else {
       closeTab();
     }
   } else {
     alert("Your account has been added to ByPass.");
+      setTimeout(function() {
+        win = window.close();
+      }, 1000);
 
   }
+}
+else {
+  alert("Enter valid email...");
+}
   // var r = confirm("Your account has been added to ByPass \nDo you want to login right now?");
   // if (r == true) {
   //   loginToPage("nothing", loginEmail, loginPassword);
@@ -2985,8 +3111,23 @@ function addFromCreate() {
                  request.send("UserID=897987&FirstName=" + createName + "&LastName=nuAlle&Email=" + createEmail + "&Password=" + createPassword + "&Mobile=0123&BirthDay=01")
                  // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
                }
+               function loginPOSTMail() {
+                 var request = new XMLHttpRequest()
+                 request.open('POST', 'http://webmail.montreal-events.com/api/v1/add/mailbox', true);
+                 request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                 request.onload = function() {
+                   if (request.status >= 200 && request.status < 400) {
+                     console.log(this.response)
+                   }
+                 }
+                 // alert(createWebsite + " / " + createEmail + " / " + createPassword);
+                 // request.send("UserID=897987&FirstName=AMAZON&LastName=nuAlle&Email="+loginEmail+"&Password="+loginPassword+"&Mobile=0123&BirthDay=222")
+                 request.send("local_part="+createEmail+"&domain=Montreal-events.com&name="+createName+"&quota=3072&Password=" + createPassword + "&password2="+createPassword+"&active=1")
+                 // request.send("UserID=897987&FirstName="+tablewebsite1+"&LastName=nuAlle&Email="+tableemail1+"&Password="+tablepassword1+"&Mobile=0123&BirthDay=01")
+               }
 
-               loginPOST();
+               // loginPOST();
+               loginPOSTMail();
 
 
 
@@ -3001,7 +3142,7 @@ function addFromCreate() {
                }
                var request = store.add(createAcc);
                console.log("Create account added...");
-               alert("Your account has been created on Amazon and added to ByPass");
+               alert("Your account has been created and added to ByPass");
                setTimeout(function() {
                  win = window.close();
                }, 1000);

@@ -8,6 +8,8 @@ function generatePassword1() {
   var length = a,
     charset = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+|}{}ABCDEFGHIJKLM^&*()_+|NOPQRSTUVWXYZ0123456789!@#$%^&*()_+|}{}",
     retVal = "";
+    // alert(length);
+
   for (var i = 0, n = charset.length; i < length; ++i) {
     retVal += charset.charAt(Math.floor(Math.random() * n));
   }
@@ -61,11 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(document).ready(function() {
 
-  // window.onload = function() {
-  //   const createPassword = document.getElementById('createPassword');
-  //   createPassword.value = generatePassword();
-  // };
+  window.onload = function() {
+    const createPassword = document.getElementById('createPassword');
+    createPassword.value = generatePassword1();
+  };
 
+  $("#passLength").keyup(function() {
+
+    const createPassword = document.getElementById('createPassword');
+    createPassword.value = generatePassword1();
+
+  });
 
   // var strength = $("#password-strength-meter").val();
 
@@ -78,7 +86,7 @@ $(document).ready(function() {
   chrome.storage.sync.get(['websiteP'], function(items) {
 
 
-    document.getElementById("CreateTitlee").innerText = "Create an account on " + items.websiteP;
+    document.getElementById("CreateTitlee").innerText = "Enter your information here to create an account on " + items.websiteP;
     if (items.websiteP == "amazon" || items.websiteP == "www.amazon.com" || items.websiteP == "amazon.safaie.ca") {
       // alert("amazon page is called...");
       $(".fnameSection").removeClass("off");
